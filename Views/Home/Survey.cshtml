@@ -1,0 +1,50 @@
+@{
+    ViewData["Survey"] = "Dojo Survey";
+}
+@model Survey
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <div>
+        <form asp-action="CreateSurvey" method="post">
+            <div>
+                <label asp-for="Name">Your Name:</label>
+                <input placeholder="I am..." asp-for="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Location">Dojo Location</label>
+                <select asp-for="Location" id="">
+                    <option value="" hidden>Select A City</option>
+                    <option value="San Jose">San Jose</option>
+                    <option value="Seattle">Seattle</option>
+                    <option value="Miami">Miami</option>
+                </select>
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Language">Favorite Language:</label>
+                <select asp-for="Language" id="">
+                    <option value=""hidden>Select a Programming Language</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                </select>
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Comment">Comment(optional)</label>
+                <textarea asp-for="Comment" id="" cols="20" rows="5" placeholder="Enter comment here..."></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
